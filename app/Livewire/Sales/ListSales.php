@@ -33,8 +33,11 @@ class ListSales extends Component implements HasActions, HasSchemas, HasTable
                 TextColumn::make('customer.name')
                     ->sortable()
                 ->searchable(),
-                TextColumn::make('saleItems.name')
+                TextColumn::make('saleItems.item.name')
+                    ->label('Sold Item')
                     ->bulleted()
+                    ->expandableLimitedList()
+                    ->limitList(2)
                     ->sortable(),
                 TextColumn::make('total')
                     ->money('XOF')
